@@ -1,76 +1,90 @@
 <!DOCTYPE html>
 <html>
-       <head>
-            <title>WEB APPLICATION ASSIGNMENT NIKHIL KV 06</title>
-        </head>
-    <body>
-        <h1><b>Pass Phase By Nikhil KrishnanVenkatesh</b></h1>
-        <form>
 
-            <label for="secret_phrase">Enter the secret phrase </label>
+<head>
+    <title>
+        WEB APPLICATIONS ASSIGNMENT 06 </title>
+</head>
 
-            <input type ="password" id="secret_phrase" name="secret_phrase" value="Let me in"> <br><br><br>
+<body>
+    <h1> <b>Pass Phrase by Nikhil KrishnanVenkatesh</h1><b></h1>
+        <form><br><br>
+            <label for="Secret ">Enter the Secret Phrase</label>
+            <input type="password" id="Secret" value="Let me in"><br><br><br>
 
-        
+            <label for="Check ">Enter a Phrase</label>
+            <input type="text" id="Check" value= ><br><br><br>
 
-            <label for="check_phrase">Enter a phrase </label>
-
-            <input type ="text" id="check_phrase" name="check_phrase" autofocus> <br><br><br>
-
-        
-
-            <input type="button" onclick="processPhrase()" value="Check the phrase">
+            <input type="button"  onclick="processPhrase()" value="Check the phrase">
 
         </form>
-
-        
-
-        
-
+        <br><br>
         <p id="result">Result</p>
-
+        <script>
+            correct=0;
+            wrong=0;
+            function processPhrase(){
+                console.log("Checking the phrase")
+                S=document.getElementById("Secret").value
+                C=document.getElementById("Check").value
+                confirmed=confirm("Do you want to continue with phrase :"+C)
+                out=document.getElementById("result")
+                if(confirmed){
+                    if(S==C){
+                    correct++
+                    alert("Access allowed")
+                    out.innerHTML="Correct attempt "+correct}
+                    else{
+                    wrong++
+                    alert("Access denied")
+                    out.innerHTML="Wrong attempt"+wrong
+                    }
         
-
-        <script> 
-
-        var correct = 0;
-
-        var wrong = 0;
-
-        function processPhrase (){
-
-            console.log("Getting form values")
-
-            secret_phrase = document.getElementById("secret_phrase").value
-
-            check_phrase = document.getElementById("check_phrase").value
-
-            
-
-            out = document.getElementById("result")
-
-            if(secret_phrase == check_phrase){
-
-                correct += 1
-
-                alert("Access allowed.")
-
-                out.innerHTML = "Correct Count: " + correct
-
-            } else {
-
-                wrong += 1
-
-                alert("Access denied.")
-
-                out.innerHTML = "Wrong Count: " + wrong
-
+                }
+                else
+                out.innerHTML="please confirm"
+                while (wrong>=4) {
+                    alert("Account locked");                }
+                
+                
             }
-
         
+                    
+    
+      </script>
+        <div class="container">
+            
+            <img id="demo" src="" alt="guess" width="200px" height="200px" onclick="newImage()" >
+            
+        </div>
+        <p id="result1"></p>
+        <script>
+            var usingImage = 1;
+            out = document.getElementById("result1")
+            function newImage() {
 
-        }
+                switch (usingImage) {
+                    case 1:
+                        document.getElementById("demo").src = "lion.jpg"
+                      
 
+                        break
+                    case 2:
+                        document.getElementById("demo").src = "tiger.jpg"
+                        
+                       ;
+                        break
+                    case 3:
+                        document.getElementById("demo").src = "panda.jpg"
+                      
+                        break
+                    }
+                    usingImage=usingImage+1
+            }
         </script>
-    </body>
+
+
+
+</body>
+
 </html>
