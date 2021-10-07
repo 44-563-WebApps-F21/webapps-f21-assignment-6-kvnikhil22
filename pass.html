@@ -31,11 +31,11 @@
                 out=document.getElementById("result")
                 if(confirmed){
                     if(S==C){
-                    correct++
+                    correct=correct+1
                     alert("Access allowed")
                     out.innerHTML="Correct attempt "+correct}
                     else{
-                    wrong++
+                    wrong=wrong+1;
                     alert("Access denied")
                     out.innerHTML="Wrong attempt"+wrong
                     }
